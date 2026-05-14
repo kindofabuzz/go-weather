@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 )
 
@@ -33,7 +34,7 @@ func prompt(scanner *bufio.Scanner, question string) string {
 	return scanner.Text()
 }
 
-const url = "https://api.openweathermap.org/data/2.5/weather?"
+const urlScrub = "https://api.openweathermap.org/data/2.5/weather?"
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
@@ -41,7 +42,7 @@ func main() {
 	countryIn := prompt(scanner, "Country?")
 	location := Location{City: cityIn, Country: countryIn}
 
-	fullURL := fmt.Sprintf("%sq=%s&units=imperial&appid=%s", url, location.Info(), apiKey)
+	fullURL := fmt.Sprintf("%sq=%s&units=imperial&appid=%s", urlScrub, url.QueryEscape(location.Info()), apiKey)
 
 	data, err := http.Get(fullURL)
 	if err != nil {
