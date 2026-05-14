@@ -20,7 +20,8 @@ type Location struct {
 
 type WeatherData struct {
 	Main struct {
-		Temp float64 `json:"temp"`
+		Temp     float64 `json:"temp"`
+		Humidity int     `json:"humidity"`
 	} `json:"main"`
 }
 
@@ -63,5 +64,6 @@ func main() {
 	}
 
 	fmt.Printf("\nCurrent temp in %s is %.1f\n", location.Info(), weather.Main.Temp)
+	fmt.Printf("Humidity is %d%%", weather.Main.Humidity)
 
 }
