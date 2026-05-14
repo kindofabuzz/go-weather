@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-// found in your env, rename it if need be
+// openweather api key,found in your env, rename it if need be
 var apiKey = os.Getenv("WEATHER_API_KEY")
 
 type Location struct {
