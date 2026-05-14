@@ -48,12 +48,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	defer func(Body io.ReadCloser) {
-		err := Body.Close()
-		if err != nil {
-
-		}
-	}(data.Body)
+	defer data.Body.Close()
 
 	body, err := io.ReadAll(data.Body)
 	if err != nil {
