@@ -44,6 +44,12 @@ const urlScrub = "https://api.openweathermap.org/data/2.5/weather?"
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	var units string
+
+	if apiKey == "" {
+		fmt.Println("WEATHER_API_KEY is not set")
+		return
+	}
+
 	cityIn := prompt(scanner, "City? ")
 	countryIn := prompt(scanner, "Country? ")
 	unitsIn := strings.ToLower(prompt(scanner, "F or C? "))
