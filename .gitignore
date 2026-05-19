@@ -1,5 +1,26 @@
-/.idea/go.imports.xml
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.env
+
+# GoLand / JetBrains
+.idea/
+*.iml
 /go-weather
-/.idea/go-weather.iml
-/.idea/vcs.xml
-/.idea/workspace.xml
